@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What methods are used for improving reasoning in large language models?",
+    "ground_truth": "Methods include long chain-of-thought reasoning, semantic entropy enhanced GRPO for policy optimization, test-time training with verifier-driven sample selection, and self-play."
+  },
+  {
+    "question": "What is the attention mechanism in transformers?",
+    "ground_truth": "Attention allows the model to weigh the importance of different tokens in a sequence when producing representations, computing weighted sums of value vectors based on query-key similarity."
+  },
+  {
+    "question": "What is reinforcement learning from human feedback?",
+    "ground_truth": "RLHF fine-tunes language models using human preference data, training a reward model on human rankings and optimizing the policy against it."
+  },
+  {
+    "question": "How does GPT-3 differ from earlier language models?",
+    "ground_truth": "GPT-3 demonstrated that scaling model size significantly improves few-shot learning performance without task-specific fine-tuning."
+  },
+  {
+    "question": "What is a diffusion model in image generation?",
+    "ground_truth": "Diffusion models generate images by learning to reverse a gradual noising process, starting from random noise and iteratively denoising it into a coherent image."
+  },
+  {
+    "question": "What is ResNet and why was it important?",
+    "ground_truth": "ResNet introduced residual connections that allow gradients to flow through very deep networks, solving the vanishing gradient problem and enabling much deeper architectures."
+  },
+  {
+    "question": "What is the role of verifiers in language model training?",
+    "ground_truth": "Verifiers check whether a model's generated reasoning or answer is correct, and can be used to select good training samples or provide reward signals."
+  },
+  {
+    "question": "What is policy optimization in the context of language models?",
+    "ground_truth": "Policy optimization refers to reinforcement learning techniques that update a language model's parameters to maximize a reward signal, such as GRPO or PPO."
+  },
+  {
+    "question": "What are the challenges of scaling language models?",
+    "ground_truth": "Challenges include computational cost, data quality, generalization limits, and the need for supervision or verification at scale."
+  },
+  {
+    "question": "How is factuality evaluated in language model outputs?",
+    "ground_truth": "Factuality is evaluated by checking whether generated statements are consistent with verified facts or ground-truth knowledge sources."
+  }
+]
