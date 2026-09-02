@@ -50,11 +50,11 @@ def search(query, top_k=5, rerank=False, candidates=20):
     embedder = get_embedder()
     fetch_k = candidates if rerank else top_k
     query_vec = embedder.encode(query).tolist()
-    results = qdrant.query_points(
+    results = qdrant.search(
         collection_name=COLLECTION_NAME,
-        query=query_vec,
+        query_vector=query_vec,
         limit=fetch_k,
-    ).points
+    )
     chunks = [
         {
             "text": r.payload["text"],
