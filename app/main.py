@@ -48,11 +48,27 @@ def query(req: QueryRequest):
 
 @app.get("/papers")
 def list_papers():
-    """List indexed PDF filenames."""
-    if not os.path.exists(PAPERS_DIR):
-        return {"papers": [], "count": 0}
-    files = sorted(f for f in os.listdir(PAPERS_DIR) if f.endswith(".pdf"))
-    return {"papers": files, "count": len(files)}
+    """List indexed PDF filenames from Qdrant."""
+    try:
+        # Get unique source filenames from Qdrant
+        results = qdrant.scroll(
+            collection_name=COLLECTION_NAME,
+            limit=10000,
+            with_payload=["source"],
+            with_vectors=False,
+        )
+        sources = set()
+        for point in results[0]:
+            if point.payload and "source" in point.payload:
+                sources.add(point.payload["source"])
+        files = sorted(sources)
+        return {"papers": files, "count": len(files)}
+    except Exception:
+        # Fallback to local directory
+        if not os.path.exists(PAPERS_DIR):
+            return {"papers": [], "count": 0}
+        files = sorted(f for f in os.listdir(PAPERS_DIR) if f.endswith(".pdf"))
+        return {"papers": files, "count": len(files)}
 
 @app.post("/ingest")
 async def ingest(file: UploadFile = File(...)):

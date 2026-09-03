@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Send, Upload, Sparkles, ArrowLeft } from "lucide-react";
 import Link from "next/link";
@@ -25,6 +26,7 @@ const SUGGESTIONS = [
 
 export default function ChatPage() {
   const [input, setInput] = useState("");
+  const router = useRouter();
   const [turns, setTurns] = useState<Turn[]>([]);
   const [loading, setLoading] = useState(false);
   const [rerank, setRerank] = useState(true);
@@ -80,10 +82,11 @@ export default function ChatPage() {
   );
 
   function resetChat() {
-    setTurns([]);
-    setError("");
-    setInput("");
-  }
+  setTurns([]);
+  setError("");
+  setInput("");
+  router.push("/");
+}
 
   const countLabel = paperCount === null ? "—" : paperCount;
 
