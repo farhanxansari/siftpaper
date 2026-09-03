@@ -65,7 +65,7 @@ SiftPaper is a production-grade **Retrieval-Augmented Generation (RAG)** system 
                                 ┌──────────────────┐
                                 │    Groq LLM      │
                                 │   Qwen3 27B      │
-                                │  (with citations) │
+                                │  (with citations)│
                                 └──────────────────┘
 ```
 
