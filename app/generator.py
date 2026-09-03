@@ -34,7 +34,6 @@ def generate_answer(question, chunks):
         model=LLM_MODEL,
         messages=[{"role": "user", "content": prompt}],
         temperature=0.1,
-        reasoning_effort="none",
     )
     answer = resp.choices[0].message.content
     answer = re.sub(r"<think>.*?</think>", "", answer, flags=re.DOTALL).strip()
