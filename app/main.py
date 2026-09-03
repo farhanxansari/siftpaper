@@ -12,12 +12,8 @@ app = FastAPI(title="SiftPaper API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://siftpaper.vercel.app",
-        "https://siftpaper-farhanxansari.vercel.app",
-        "http://localhost:3000",
-        "*",  # fallback
-    ],
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
