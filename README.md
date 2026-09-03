@@ -48,7 +48,7 @@ SiftPaper is a production-grade **Retrieval-Augmented Generation (RAG)** system 
                           │              SiftPaper                      │
                           └─────────────────────────────────────────────┘
 
-  ┌──────────────┐              ┌──────────────────┐              ┌──────────────┐
+  ┌──────────────┐              ┌───────────────────┐              ┌──────────────┐
   │   Next.js    │   question   │    FastAPI        │   embed      │ Qdrant Cloud │
   │   Frontend   │ ───────────► │    Backend        │ ───────────► │  Vector DB   │
   │   (Vercel)   │ ◄─────────── │    (Railway)      │ ◄─────────── │ 7,346 chunks │
